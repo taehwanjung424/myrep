@@ -13,25 +13,25 @@
 <table border="1" width="880">
 	<tr>
 	<td width="77">
-            <p align="center">글번호</p>
-        </td>
+        <p align="center">글번호</p>
+    </td>
 
-        <td width="327">
-            <p align="center">제목</p>
-        </td>
-        <td width="197">
-            <p align="center">작성자</p>
-        </td>
+    <td width="327">
+        <p align="center">제목</p>
+    </td>
+    <td width="197">
+        <p align="center">작성자</p>
+    </td>
 
-        <td width="155">
-            <p align="center">작성일</p>
-        </td>
-        <td width="90">
-            <p align="center">조회수</p>
-        </td>
-        </tr>
+    <td width="155">
+        <p align="center">작성일</p>
+    </td>
+    <td width="90">
+        <p align="center">조회수</p>
+    </td>
+    </tr>
 
-        <c:forEach items="${list}" var="boardVO">
+    <c:forEach items="${list}" var="boardVO">
 	<tr>
         <td>${boardVO.bno}</td>
         <td><a href='/read?bno=${boardVO.bno}'>${boardVO.title}</a></td>
@@ -42,7 +42,7 @@
 	</tr>
 		</c:forEach>
 </table>
-	<button type = "submit">글쓰기</button>
+<button type = "submit">글쓰기</button>
 </body>
 </form>
 </html>

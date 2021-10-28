@@ -25,8 +25,7 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
 	 -->
 	<bean id="datasource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
 		<property name="driverClassName" value="com.microsoft.sqlserver.jdbc.SQLServerDriver" />
-		<!-- <property name="driverClassName" value="core.log.jdbc.driver.MssqlDriver"/>  -->
-		<property name="url" value="jdbc:sqlserver://127.0.0.1:1433;DatabaseName=homedb;" />
+		<property name="url" value="jdbc:sqlserver://localhost:1433;DatabaseName=homedb" />
 		<property name="username" value="home" />
 		<property name="password" value="sa" />
 	</bean>
@@ -36,30 +35,22 @@ http://www.springframework.org/schema/tx http://www.springframework.org/schema/t
         <property name="locations" value=" classpath*:/properties/jdbc.properties"></property>
         <property name="fileEncoding" value="UTF-8"></property>
     </bean>
-    
-    <!-- mybatis SqlSessionFactoryBean -->
+	
+	<bean name="sqlSession" id="session"
+		class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
+	</bean>
+	
+	<!-- mybatis SqlSessionFactoryBean -->
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="datasource"></property>
 		<property name="configLocation" value="classpath:/mybatis-config.xml"></property>
 		<property name="mapperLocations">
-		 <array>
-		   <value>classpath*:/mappers/*Mapper.xml</value>
-		 </array>	
+		   <value>classpath:/mappers/*-Mapper.xml</value>	
 	    </property> 
 	</bean>
 	
-	<bean id="sqlSession" class="org.mybatis.spring.SqlSessionTemplate" destroy-method="clearCache">
-		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
-	</bean>
-	
-	<!-- <bean name="sqlSession" id="session"
-		class="org.mybatis.spring.SqlSessionTemplate">
-		<constructor-arg ref="sqlSessionFactory"></constructor-arg>
-	</bean>
-	 -->
-	<!-- 
 	<bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="ds"></property>
+        <property name="dataSource" ref="dataSource"></property>
     </bean>
-     -->
 </beans>

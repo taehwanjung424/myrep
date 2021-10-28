@@ -13,5 +13,9 @@
 	<typeAliases>
 		<typeAlias alias="BoardVO" type="com.myp.domain.BoardVO" />
 	</typeAliases>
-	
+	<!-- 
+	<mappers>
+		<mapper resource="/mappers/board-Mapper.xml"/>
+	</mappers>
+	 -->
 </configuration>

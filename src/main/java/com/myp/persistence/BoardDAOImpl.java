@@ -14,31 +14,31 @@ public class BoardDAOImpl implements BoardDAO{
 	
 	@Inject
 	private SqlSession session;
-	private static String namespace = "boardmapper1.";
+	private static String namespace = "boardmapper";
 
 	@Override
 	public void create(BoardVO vo) throws Exception{
-		session.insert(namespace+"create", vo);
+		session.insert(namespace+".create", vo);
 	}
 	
 	@Override
 	public BoardVO read(Integer bno) throws Exception{
-		return session.selectOne(namespace+"read", bno);
+		return session.selectOne(namespace+".read", bno);
 	}
 	
 	@Override
 	public void update(BoardVO vo) throws Exception{
-		session.update(namespace+"update", vo);
+		session.update(namespace+".update", vo);
 	}
 	
 	@Override
 	public void delete(Integer bno) throws Exception{
-		session.delete(namespace+"delete", bno);
+		session.delete(namespace+".delete", bno);
 	}
 	
 	@Override
 	public List<BoardVO> listAll() throws Exception{
-		return session.selectList(namespace+"listAll");
+		return session.selectList(namespace+".listAll");
 	}
 
 }

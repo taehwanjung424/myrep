@@ -13,6 +13,6 @@
 <label>내용</label><p>
 <textarea rows="15" cols="65" name = "content"></textarea><p>
 <button type = "submit">등록</button>
-</body>
 </form>
+</body>
 </html>

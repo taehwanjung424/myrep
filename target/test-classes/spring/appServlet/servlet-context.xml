@@ -21,10 +21,9 @@
 		<beans:property name="suffix" value=".jsp" />
 	</beans:bean>
 	
-	<!-- <context:component-scan base-package="com.myp" /> -->
-	<context:component-scan base-package="com.myp.controller" />
-	<context:component-scan base-package="com.myp.domain" />
-	<context:component-scan base-package="com.myp.persistence" />
-	<context:component-scan base-package="com.myp.service" />
+	<context:component-scan base-package="com.myp" />
+	<!--<context:component-scan base-package="com.myp.controller" />-->
+	
+	
 	
 </beans:beans>

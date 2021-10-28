@@ -24,11 +24,18 @@ public class BoardController {
 		model.addAttribute("list", service.listAll());
 	}
 	
+	@RequestMapping(value = "/regist", method = RequestMethod.GET)
+	public void registerGET(BoardVO board, Model model) throws Exception{
+		
+	}
+	
 	@RequestMapping(value = "/regist", method = RequestMethod.POST) // POST방식으로 내용 전송
 	  public String registPOST(BoardVO board, RedirectAttributes rttr) throws Exception { // 인자값으로 REDIRECT 사용 	   
-		  service.regist(board); // 글작성 서비스 호출	    	    
+		
+		service.regist(board); // 글작성 서비스 호출
+		
 	    return "redirect:/listAll"; // 작성이 완료된 후, 목록페이지로 리턴
-	}
+	}	
 	
 	@RequestMapping(value = "/read", method = RequestMethod.GET)
 	public void read(@RequestParam("bno")int bno, Model model)throws Exception{
